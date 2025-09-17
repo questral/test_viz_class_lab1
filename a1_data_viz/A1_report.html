@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Data Vis Assignment 1</title>
+	<link rel="stylesheet" href="https://dig.cmu.edu/datavis-fall-2024/assignments/report.css" />
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 1</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Kai Okorodudu</strong> — <em>kokorodu@andrew.cmu.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: TIME</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			<ol>
+				<li>What's the overall distribution of drugs used?</li>
+				<li>Does age have any bearing on the details of each accident?</li>
+				<li>How do different divisions of time affect the amount of accidents?</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<figure>
+				<img src="a1_images/race_and_sex.png" alt="" />
+				<figcaption>
+				My first explorations were on the racial and gender makeup of the data. At first, I looked at the number of accidents for each race by counting the combined_od1 value for each and placing them on a bar graph. However, the dataset contained significantly more white and black values than any other race, so it was hard to inspect the detail. A common theme across the graphs is that the other races barely appear at all.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/unusable_drug_chart.png" alt="" />
+				<figcaption>
+				I also created this graph to look at the drugs being taken across race, not expecting there to be so many drugs. While this wasn't useful to me, I did get to see how sparse the data was for some races.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/bad_drug_count.png" alt="" />
+				<figcaption>
+				My first question was about what drugs were being taken. To get a handle on the drug variety, I attempted to get the number of drugs taken by each person in the dataset, which I wasn't able to do. However, I did manage to extract the number of times each drug showed up, and put them all in a bar chart to compare their counts. From this I saw that fentanyl was the most common drug to overdose on, which makes sense to me because of how potent it is. I also saw alcohol, which I imagine is because it's fairly easy to ingest and commonly available.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/drug_count.png" alt="" />
+				<figcaption>
+				There was a high count of empty strings that I was seeing, because of the empty spaces left when all 10 drug slots weren't filled. I filtered the dataset to get rid of those. I then trimmed the graph to only show the top 30, and colored the bars redundantly to reflect their number.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/age_and_sex.png" alt="" />
+				<figcaption>
+				The next thing I wanted to look at was the accident count across age. Something that surprised me here was the number of deaths below 10 years old, which didn't register to me while looking at the raw data. However, I decided to trim those values, since I thought maybe any overdoses there were either inadvertently consumed or erroneous, and I was interested in the implications of more intentional activity. I also included sex, but the ratio seemed consistent and uneventful. I ended up pooking into it a bit more later.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/age_groups_across_year.png" alt="" />
+				<figcaption>
+				I made a histogram which compared accidents across binned age groups. This made me curious about how the median age at the time of the accident fluctuated across years. While I wasn't able to calculate that in the graph, I was able to eyeball the general peak age here shifting between 20 to 50.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/race_and_time_of_day.png" alt="" />
+				<figcaption>
+				Following that revalation, I also checked what the most common hour of the day was for accidents. It seems to be around noon, with a strong dropoff in the early morning. That was a bit surprising; it was the inverse of what I'd expected, since I thought that would be the time of day when people are most active with life and work. I assumed afternoon or late night would be the peak. I wonder if the peak is at noon because of survivorship bias; maybe the people who overdosed didn't have the proper time to ensure their safety.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/time_of_day_by_age.png" alt="" />
+				<figcaption>
+				I expected the age makeup to vary a bit throughout the day as well. After separating it out into area graphs, there wasn't as much variety as I thought there would be, but I did notice a slight shift earlier in the day as the age got higher.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/april_spike.png" alt="" />
+				<figcaption>
+				I ended up accidentally combining all of the separate months, which gave me a look at which months had the most accidents out of the year. I noticed a strong peak around April which I didn't expect; I thought the peak would be more during the holiday season. While I'm very unsure why this is, I wonder if some part of it has to do with 4/20.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="a1_images/white_spike.png" alt="" />
+				<figcaption>
+				Finally, to explore race further, I separated out the timeline into race. What immediately jumped out to me after this was that there was a massive spike in overdoses in the White category that didn't seem to be there for anyone else, arount the year 2017. After looking into it, it turns out there was a brief spike in carfentanil availability from 2016 to 2017, according to the National Library of Medicine.
+				</figcaption>
+			</figure>
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>There are a lot of analyses that I wasn't able to make because of my unfamiliarity with Vega-Lite, but what I was able to find was mostly time based. The accidents in this data set are heavily influenced by time: Time of day, month of the year, and of course yearly trends. Overall, sex and age seemed to have little bearing so far. Fentanyl, heroin, and cocaine are the most common drugs in general. There was also a bit of history revealed in the last graph that indicates some possible racial correlation with carfentanil. In future analysis, I would be interested to see how specific drugs are used across different subgroups.</p>
+		</section>
+	</main>
+</body>
+</html>
