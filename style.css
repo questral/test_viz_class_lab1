@@ -2,11 +2,14 @@ html {
     --accent: rgb(46, 46, 255);
     
     accent-color: var(--accent);
+    color-scheme: light dark;
 }
 
 body {
-    background: #000000;
-    color: wheat;
+    /* background: #000000;
+    color: wheat; */
+    background: Canvas;
+    color: Canvastext;
     /* font-size: 20px; */
     /* font: 100%/1.5 system-ui; */
     font: 100%/1.5;
@@ -37,12 +40,23 @@ img {
     }
 }
 
+label.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+    font-family: inherit;
+    font-size: 80%;
+}
+
 nav {
+    --border-color: oklch(50% 90% 200 / 40%);
     /* background: blue; */
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-around;
-    border-bottom: 1px solid wheat;
+    /* border-bottom: 1px solid wheat; */
+    border-bottom: 1px solid var(--border-color);
 
     ul {
         display: contents;
@@ -60,17 +74,18 @@ nav {
     }
     a.current {
         /* background: blue; */
-        border-bottom: 5px solid wheat;
+        border-bottom: 5px solid Canvastext;
         padding-bottom: 0px;
     }
     a:hover {
         border-bottom: 5px solid var(--accent);
         padding-bottom: 0px;
-        background-color: oklch(from var(--accent) 10% 50% h);
+        /* background-color: oklch(from var(--accent) 10% 50% h); */
+        background-color: color-mix(in oklch, var(--accent), Canvas 85%);
     }
 }
 
-input, textarea, button {
+input, textarea, button, select {
     font: inherit;
     /* display: block;
     width: 100%;
